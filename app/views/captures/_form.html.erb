@@ -1,0 +1,58 @@
+<%= form_for(@capture) do |f| %>
+  <% if @capture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@capture.errors.count, "error") %> prohibited this capture from being saved:</h2>
+
+      <ul>
+      <% @capture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.text_field :email, class: "form-control input-lg", placeholder: "email" %>
+      </div> <!-- end form-group -->
+    </div> <!-- end col-md-12 -->
+  </div> <!-- end row -->
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.text_field :first_name, class: "form-control input-lg", placeholder: "first name" %>
+      </div> <!-- end form-group -->
+    </div> <!-- end col-md-6 -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.text_field :last_name, class: "form-control input-lg", placeholder: "last name" %>
+      </div>  <!-- end form-group -->
+    </div> <!-- end col-md-6 -->
+  </div> <!-- end row -->
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.text_field :phone_number, class: "form-control input-lg", placeholder: "phone number" %>
+      </div> <!-- end form-group -->
+    </div> <!-- end col-md-6 -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.select :status, options_for_status, {}, class: "form-control input-lg" %>
+      </div>
+    </div> <!-- end col-md-6 -->
+  </div> <!-- end row -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.text_field :name, class: "form-control input-lg", placeholder: "School or company name" %>
+      </div> <!-- end form-group -->
+    </div> <!-- end col-md-12 -->
+  </div> <!-- end row -->
+  
+  
+  <div class="form-group">
+    <%= f.submit "Get early access now", class: "btn btn-primary btn-lg btn-block" %>
+  </div>
+<% end %>
